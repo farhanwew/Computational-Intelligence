@@ -1,12 +1,12 @@
 # Intro to Computational Intelligence
 
-Courses: Computational Thinking (https://www.notion.so/Computational-Thinking-c5643931db634152a6f1bc096b37d5eb?pvs=21)
+Courses: Computational Thinking (https://www.notion.so/Computational-Thinking-c5643931db634152a6f1bc096b37d5eb?pvs=21)  
 Date: August 26, 2024
 
 # What is Intelligence
 
-Webster’s New Collegiate Dictionary defines intelligence as “1a(1) : The ability to learn or
-understand or to deal with new or trying situations : REASON; also: the skilled use of reason (2) : the
+Webster’s New Collegiate Dictionary defines intelligence as “1a(1) : The ability to learn or  
+understand or to deal with new or trying situations : REASON; also: the skilled use of reason (2) : the  
 ability to apply knowledge to manipulate one’s environment or to think abstractly as measured by objective criteria (as tests)”
 
 | Discipline | Key Concepts | Contribution to Computational Thinking |
@@ -28,9 +28,9 @@ Computational Intelligence (CI) is the theory, design, application and developme
 
 Computational Intelligence (CI) atau Kecerdasan Komputasional adalah bidang studi yang berfokus pada teori, desain, aplikasi, dan pengembangan sistem komputasi yang terinspirasi oleh proses biologis dan linguistik. Ini berarti bahwa metode dan algoritma yang digunakan dalam CI mengambil inspirasi dari cara kerja otak manusia, sistem biologis lainnya, serta struktur dan pola bahasa.
 
-*Computational Intelligence* merupakan kumpulan dari teknik komputasi yang mampu mempelajari dan mengenali data secara otomatis. 
+_Computational Intelligence_ merupakan kumpulan dari teknik komputasi yang mampu mempelajari dan mengenali data secara otomatis. 
 
-*Computational intelligence* mengadopsi model komputasi yang berasal dari kecerdasan yang ditemukan pada manusia, hewan, dan fenomena alam lainnya.  Menariknya, teknik-teknik *computational intelligence* dapat mengolah data yang bersifat parsial, *ambigu*, dan acak. Sejak diperkenalkan oleh Bezdek pada tahun 1994, co*mputational intelligence* telah menerima popularitas sebagai metode dan alat bantu *analytics* untuk menggali informasi yang tersembunyi di dalam data. Tujuan dari pemrosesan data mencakup klasifikasi dan pengelompokan *item* di dalam data. Selain itu, data juga dapat diolah dan dianalisis untuk membuat model prediksi dan keputusan.
+_Computational intelligence_ mengadopsi model komputasi yang berasal dari kecerdasan yang ditemukan pada manusia, hewan, dan fenomena alam lainnya.  Menariknya, teknik-teknik _computational intelligence_ dapat mengolah data yang bersifat parsial, _ambigu_, dan acak. Sejak diperkenalkan oleh Bezdek pada tahun 1994, co_mputational intelligence_ telah menerima popularitas sebagai metode dan alat bantu _analytics_ untuk menggali informasi yang tersembunyi di dalam data. Tujuan dari pemrosesan data mencakup klasifikasi dan pengelompokan _item_ di dalam data. Selain itu, data juga dapat diolah dan dianalisis untuk membuat model prediksi dan keputusan.  
 source: ([https://mti.binus.ac.id/2017/06/08/pendahuluan-singkat-mengenai-bidang-computational-intelligence/](https://mti.binus.ac.id/2017/06/08/pendahuluan-singkat-mengenai-bidang-computational-intelligence/))
 
 # CI Techniques
