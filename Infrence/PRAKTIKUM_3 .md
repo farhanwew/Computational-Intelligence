@@ -18,10 +18,6 @@ from notebook import psource
 import pandas as pd
 ```
 
-    C:\Users\farha\anaconda3\Lib\site-packages\qpsolvers\solvers\__init__.py:711: UserWarning: no QP solver found on your system, you can install solvers from PyPI by ``pip install qpsolvers[open_source_solvers]``
-      warnings.warn(
-    
-
 Buatlah program untuk masalah Wumpus World berdasarkan buku Artificial Intelligence: A Modern Approach pada halaman 238.
 
 ![image.png](image.png)
@@ -176,6 +172,8 @@ def tt_check_all_edit(kb, alpha, symbols, model, results_list):
             model['kb'] = False
             results_list.append(model) 
             return True 
+        
+        
     else:
         P, rest = symbols[0], symbols[1:]
         
@@ -256,7 +254,7 @@ Fungsi tt_entails() mengambil simbol-simbol dari query dan memanggil tt_check_al
 | 1 | V |  (A,B)| P? |  |   |
 
 - Terdapat breeze di [2,1]
-- jika dan hanya jika terdapay breeze di [2,1] maka ada pit di [1,1] atau [2,2] atau [3,1]
+- jika dan hanya jika terdapat breeze di [2,1] maka ada pit di [1,1] atau [2,2] atau [3,1]
 - $R_1$ = $B_{2,1}$ <=> $P_{1,1}$ $\lor$ $P_{2,2}$ $\lor$ $P_{3,1}$
 ---
 - dan kita tahu juga bahwa tidak ada pit di [1,1]
@@ -304,7 +302,7 @@ hasil_1 = pd.DataFrame(tt_entails_edit(R1 & R2 & R3, P22)[1])
 hasil_1
 ```
 
-    Symbols: [P22, B21, P31, P11]
+    Symbols: [P11, B21, P22, P31]
     KB: (((((B21 <=> P11) | P22) | P31) & ~P11) & B21)
     
     Alpha: P22
@@ -333,10 +331,10 @@ hasil_1
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>P22</th>
-      <th>B21</th>
-      <th>P31</th>
       <th>P11</th>
+      <th>B21</th>
+      <th>P22</th>
+      <th>P31</th>
       <th>kb</th>
     </tr>
   </thead>
@@ -355,7 +353,7 @@ hasil_1
       <td>True</td>
       <td>True</td>
       <td>False</td>
-      <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
@@ -371,7 +369,7 @@ hasil_1
       <td>True</td>
       <td>False</td>
       <td>False</td>
-      <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
@@ -411,7 +409,7 @@ hasil_1
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>9</th>
@@ -427,7 +425,7 @@ hasil_1
       <td>True</td>
       <td>False</td>
       <td>True</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>11</th>
@@ -503,28 +501,20 @@ hasil_1[hasil_1['kb'] == True]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>P22</th>
-      <th>B21</th>
-      <th>P31</th>
       <th>P11</th>
+      <th>B21</th>
+      <th>P22</th>
+      <th>P31</th>
       <th>kb</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
+      <th>8</th>
       <td>False</td>
       <td>True</td>
-    </tr>
-    <tr>
-      <th>3</th>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
     </tr>
     <tr>
@@ -535,14 +525,22 @@ hasil_1[hasil_1['kb'] == True]
       <td>False</td>
       <td>True</td>
     </tr>
+    <tr>
+      <th>10</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
   </tbody>
 </table>
 </div>
 
 
 
-## Check  Pit [1, 3]
-Saat agen berada di [2,1] apakah terdapat pit [1,3]
+## Check  Pit [3,1]
+Saat agen berada di [2,1] apakah terdapat pit [3,1]
 
 
 ```python
@@ -550,7 +548,7 @@ hasil_2 = pd.DataFrame(tt_entails_edit(R1 & R2 & R3, P31)[1])
 hasil_2
 ```
 
-    Symbols: [P22, B21, P31, P11]
+    Symbols: [P11, B21, P22, P31]
     KB: (((((B21 <=> P11) | P22) | P31) & ~P11) & B21)
     
     Alpha: P31
@@ -579,10 +577,10 @@ hasil_2
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>P22</th>
-      <th>B21</th>
-      <th>P31</th>
       <th>P11</th>
+      <th>B21</th>
+      <th>P22</th>
+      <th>P31</th>
       <th>kb</th>
     </tr>
   </thead>
@@ -601,7 +599,7 @@ hasil_2
       <td>True</td>
       <td>True</td>
       <td>False</td>
-      <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
@@ -617,7 +615,7 @@ hasil_2
       <td>True</td>
       <td>False</td>
       <td>False</td>
-      <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
@@ -657,7 +655,7 @@ hasil_2
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>9</th>
@@ -673,7 +671,7 @@ hasil_2
       <td>True</td>
       <td>False</td>
       <td>True</td>
-      <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>11</th>
@@ -747,28 +745,20 @@ hasil_2[hasil_2['kb'] == True]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>P22</th>
-      <th>B21</th>
-      <th>P31</th>
       <th>P11</th>
+      <th>B21</th>
+      <th>P22</th>
+      <th>P31</th>
       <th>kb</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
+      <th>8</th>
       <td>False</td>
       <td>True</td>
-    </tr>
-    <tr>
-      <th>3</th>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
     </tr>
     <tr>
@@ -779,13 +769,21 @@ hasil_2[hasil_2['kb'] == True]
       <td>False</td>
       <td>True</td>
     </tr>
+    <tr>
+      <th>10</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
   </tbody>
 </table>
 </div>
 
 
 
-## belum dapat diambil kesimpulan apakah benar pit di [1,3] atau [2,2] atau keduanya
+## belum dapat diambil kesimpulan apakah benar pit di [3,1] atau [2,2] atau keduanya
 
 ## Maka Agent menuju ke [1,2]
 
@@ -816,7 +814,7 @@ hasil_2[hasil_2['kb'] == True]
 
 
 ```python
-S12, W22, W13, W11= expr('S12, W22, W13, W11')
+S12, W22, W13, W11, P13= expr('S12, W22, W13, W11, P13')
 
 R4 = (S12 |'<=>'| W22 | W13 | W11)
 ```
@@ -841,8 +839,8 @@ R7 = ~P22
 R8 = ~W22
 ```
 
-## Dari hasil sebelumnya kita bisa mengetahui apakah
-- ada pit di [3,1]
+## ketika sekarang di [1,2] agen mendapatkan informasi tambahan sehingga dapat menyimpulkan apakah?
+- ada pit di [3,1], yang sebelumnya tidak dapat disimpulkan
 - ada wumpus di [1,3]
 
 ## Check pit in [3,1] 
@@ -855,7 +853,7 @@ Check_31 = pd.DataFrame(tt_entails_edit(R1 & R2 & R3 & R4  & R5 & R6 & R7 & R8
 Check_31
 ```
 
-    Symbols: [W22, W11, S12, W13, P22, B21, P31, P11]
+    Symbols: [W22, P31, S12, W13, P22, B21, W11, P11]
     KB: ((((((((((B21 <=> P11) | P22) | P31) & ~P11) & B21) & (((S12 <=> W22) | W13) | W11)) & S12) & ~W11) & ~P22) & ~W22)
     
     Alpha: P31
@@ -885,12 +883,12 @@ Check_31
     <tr style="text-align: right;">
       <th></th>
       <th>W22</th>
-      <th>W11</th>
+      <th>P31</th>
       <th>S12</th>
       <th>W13</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P31</th>
+      <th>W11</th>
       <th>P11</th>
       <th>kb</th>
     </tr>
@@ -1063,26 +1061,26 @@ Check_31[Check_31['kb'] == True]
     <tr style="text-align: right;">
       <th></th>
       <th>W22</th>
-      <th>W11</th>
+      <th>P31</th>
       <th>S12</th>
       <th>W13</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P31</th>
+      <th>W11</th>
       <th>P11</th>
       <th>kb</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>201</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
+      <th>139</th>
       <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
       <td>False</td>
       <td>True</td>
     </tr>
@@ -1104,7 +1102,7 @@ Check_13 = pd.DataFrame(tt_entails_edit(R1 & R2 & R3 & R4  & R5 & R6 & R7 & R8
 Check_13
 ```
 
-    Symbols: [W22, W11, S12, W13, P22, B21, P31, P11]
+    Symbols: [W22, P31, S12, W13, P22, B21, W11, P11]
     KB: ((((((((((B21 <=> P11) | P22) | P31) & ~P11) & B21) & (((S12 <=> W22) | W13) | W11)) & S12) & ~W11) & ~P22) & ~W22)
     
     Alpha: W13
@@ -1134,12 +1132,12 @@ Check_13
     <tr style="text-align: right;">
       <th></th>
       <th>W22</th>
-      <th>W11</th>
+      <th>P31</th>
       <th>S12</th>
       <th>W13</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P31</th>
+      <th>W11</th>
       <th>P11</th>
       <th>kb</th>
     </tr>
@@ -1312,26 +1310,26 @@ Check_13[Check_13['kb'] == True]
     <tr style="text-align: right;">
       <th></th>
       <th>W22</th>
-      <th>W11</th>
+      <th>P31</th>
       <th>S12</th>
       <th>W13</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P31</th>
+      <th>W11</th>
       <th>P11</th>
       <th>kb</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>201</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
+      <th>139</th>
       <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
       <td>False</td>
       <td>True</td>
     </tr>
@@ -1409,7 +1407,7 @@ Check_33 = pd.DataFrame(tt_entails_edit(R1 & R2 & R3 & R4 & R5 & R6 & R7 & R8 & 
 Check_33
 ```
 
-    Symbols: [W22, W11, S12, W13, P22, B21, P33, B32, P31, P42, P11]
+    Symbols: [W22, P31, S12, W13, B32, P22, B21, W11, P11, P33, P42]
     KB: ((((((((((((((B21 <=> P11) | P22) | P31) & ~P11) & B21) & (((S12 <=> W22) | W13) | W11)) & S12) & ~W11) & ~P22) & ~W22) & P31) & W13) & ((B32 <=> P33) | P42)) & B32)
     
     Alpha: P33
@@ -1439,16 +1437,16 @@ Check_33
     <tr style="text-align: right;">
       <th></th>
       <th>W22</th>
-      <th>W11</th>
+      <th>P31</th>
       <th>S12</th>
       <th>W13</th>
+      <th>B32</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P33</th>
-      <th>B32</th>
-      <th>P31</th>
-      <th>P42</th>
+      <th>W11</th>
       <th>P11</th>
+      <th>P33</th>
+      <th>P42</th>
       <th>kb</th>
     </tr>
   </thead>
@@ -1654,63 +1652,63 @@ Check_33[Check_33['kb'] == True]
     <tr style="text-align: right;">
       <th></th>
       <th>W22</th>
-      <th>W11</th>
+      <th>P31</th>
       <th>S12</th>
       <th>W13</th>
+      <th>B32</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P33</th>
-      <th>B32</th>
-      <th>P31</th>
-      <th>P42</th>
+      <th>W11</th>
       <th>P11</th>
+      <th>P33</th>
+      <th>P42</th>
       <th>kb</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1601</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
+      <th>1068</th>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1069</th>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>True</td>
     </tr>
     <tr>
-      <th>1603</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
+      <th>1070</th>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
-      <td>False</td>
       <td>True</td>
-    </tr>
-    <tr>
-      <th>1617</th>
+      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
       <td>True</td>
     </tr>
   </tbody>
@@ -1728,7 +1726,7 @@ Check_42 = pd.DataFrame(tt_entails_edit(R1 & R2 & R3 & R4 & R5 & R6 & R7 & R8 & 
 Check_42
 ```
 
-    Symbols: [W22, W11, S12, W13, P22, B21, P31, P42, P11]
+    Symbols: [P31, W22, S12, W13, P22, B21, W11, P11, P42]
     KB: (((((((((((B21 <=> P11) | P22) | P31) & ~P11) & B21) & (((S12 <=> W22) | W13) | W11)) & S12) & ~W11) & ~P22) & ~W22) & P31)
     
     Alpha: P42
@@ -1757,15 +1755,15 @@ Check_42
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>P31</th>
       <th>W22</th>
-      <th>W11</th>
       <th>S12</th>
       <th>W13</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P31</th>
-      <th>P42</th>
+      <th>W11</th>
       <th>P11</th>
+      <th>P42</th>
       <th>kb</th>
     </tr>
   </thead>
@@ -1948,41 +1946,41 @@ Check_42[Check_42['kb'] == True]
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>P31</th>
       <th>W22</th>
-      <th>W11</th>
       <th>S12</th>
       <th>W13</th>
       <th>P22</th>
       <th>B21</th>
-      <th>P31</th>
-      <th>P42</th>
+      <th>W11</th>
       <th>P11</th>
+      <th>P42</th>
       <th>kb</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>401</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
+      <th>150</th>
       <td>True</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
       <td>True</td>
       <td>False</td>
+      <td>False</td>
+      <td>True</td>
       <td>True</td>
     </tr>
     <tr>
-      <th>403</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
+      <th>151</th>
       <td>True</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
